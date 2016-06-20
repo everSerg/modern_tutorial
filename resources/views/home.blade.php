@@ -6,6 +6,11 @@
 
 @section('content')
     <div class="centered">
+        <a href="{{ route('greet') }}">Greet</a>
+        <a href="{{ route('hug') }}">Hug</a>
+        <a href="{{ route('kiss') }}">Kiss</a>
+
+        <!--
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Phasellus hendrerit ultrices risus a tempor. In a mauris orci.
@@ -24,6 +29,7 @@
 
             @endfor
         </ul>
+        -->
     </div>
 
 
