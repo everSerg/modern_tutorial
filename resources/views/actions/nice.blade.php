@@ -2,5 +2,5 @@
 
 @section('content')
     <a href="{{ route('home') }}">Home</a>
-    <h1>I kiss you!</h1>
+    <h1>I {{ $action }} {{ $name }}!</h1>
 @endsection
