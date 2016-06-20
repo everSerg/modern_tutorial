@@ -1,0 +1,15 @@
+/storage/*
+!storage/framework/
+/public/upload/cache/*
+/composer.phar
+/.gitattributes
+/node_modules
+/public/storage
+Homestead.yaml
+Homestead.json
+.env
+!.env.example
+/composer.lock
+/.idea
+/vendor
+_ide_helper.php
