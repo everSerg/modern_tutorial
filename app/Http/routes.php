@@ -23,9 +23,9 @@
             'as' => 'niceaction'
         ]);
 
-        Route::post('/', [
-            'uses' => 'NiceActionController@postNiceAction',
-            'as' => 'benice'
+        Route::post('/add_action', [
+            'uses' => 'NiceActionController@postInsertNiceAction',
+            'as' => 'add_action'
         ]);
     });
 //});

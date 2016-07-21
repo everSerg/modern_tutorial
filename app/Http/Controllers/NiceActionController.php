@@ -20,12 +20,18 @@ class NiceActionController extends Controller
         return view( 'actions.nice', ['action' => $action, 'name' => $name]);
     }
 
-    public function postNiceAction(Request $request){
+    public function postInsertNiceAction(Request $request){
         $this->validate($request, [
-            'action' => 'required',
-            'name' => 'required|alpha',
+            'name' => 'required|alpha|unique:nice_actions',
+            'niceness' => 'required|numeric',
         ]);
-        return view('actions.nice', ['action' => $request['action'], 'name' => $this->transformName($request['name'])]);
+
+        $action = new NiceAction();
+        $action->name = $request['name'];
+        $action->niceness = ucfirst(strtolower($request['niceness']));
+        $action->save();
+
+        return redirect()->route('home');
     }
 
     private function transformName($name){

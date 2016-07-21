@@ -20,14 +20,11 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('benice') }}" method="post">
-            <label for="select-action">I want to ...</label>
-            <select id="select-action" name="action">
-                <option value="greet">Greet</option>
-                <option value="hug">Hug</option>
-                <option value="kiss">Kiss</option>
-            </select>
-            <input type="text" name="name" />
+        <form action="{{ route('add_action') }}" method="post">
+            <label for="name">Name of action:</label>
+            <input type="text" name="name" id="name" />
+            <label for="niceness">Niceness:</label>
+            <input type="text" name="niceness" id="niceness" />
             <button type="submit">Do a nice action!</button>
             <input type="hidden" value="{{ Session::token() }}" name="_token"/>
         </form>
