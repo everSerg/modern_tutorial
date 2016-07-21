@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 21 2016 г., 12:20
+-- Время создания: Июл 21 2016 г., 13:01
 -- Версия сервера: 5.6.22-log
 -- Версия PHP: 5.6.3
 
@@ -37,7 +37,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_06_20_090525_create_nice_actions_table', 1),
-('2016_07_21_084015_create_nice_action_logs_table', 2);
+('2016_07_21_084015_create_nice_action_logs_table', 1),
+('2016_07_21_092803_create_categories_table', 1),
+('2016_07_21_092939_categories_nice_actions', 1);
 
 -- --------------------------------------------------------
 
@@ -52,21 +54,17 @@ CREATE TABLE IF NOT EXISTS `nice_actions` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `niceness` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `nice_actions`
 --
 
 INSERT INTO `nice_actions` (`id`, `created_at`, `updated_at`, `name`, `niceness`) VALUES
-(1, '2016-07-21 04:56:54', '2016-07-21 04:56:54', 'Greet', 3),
-(2, '2016-07-21 04:56:54', '2016-07-21 04:56:54', 'Hug', 6),
-(3, '2016-07-21 04:56:54', '2016-07-21 04:56:54', 'Kiss', 12),
-(4, '2016-07-21 04:56:54', '2016-07-21 04:56:54', 'Wave', 2),
-(5, '2016-07-21 05:23:27', '2016-07-21 05:23:27', 'smile', 4),
-(6, '2016-07-21 05:29:29', '2016-07-21 05:29:29', 'Blink', 3),
-(7, '2016-07-21 05:29:43', '2016-07-21 05:29:43', 'Smile', 14),
-(8, '2016-07-21 05:31:54', '2016-07-21 05:31:54', 'Smilee', 2);
+(1, '2016-07-21 06:57:10', '2016-07-21 06:57:10', 'Greet', 3),
+(2, '2016-07-21 06:57:10', '2016-07-21 06:57:10', 'Hug', 6),
+(3, '2016-07-21 06:57:10', '2016-07-21 06:57:10', 'Kiss', 12),
+(4, '2016-07-21 06:57:10', '2016-07-21 06:57:10', 'Wave', 2);
 
 -- --------------------------------------------------------
 
@@ -80,18 +78,17 @@ CREATE TABLE IF NOT EXISTS `nice_action_logs` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `nice_action_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `nice_action_logs`
 --
 
 INSERT INTO `nice_action_logs` (`id`, `created_at`, `updated_at`, `nice_action_id`) VALUES
-(1, '2016-07-21 06:16:09', '2016-07-21 06:16:09', 4),
-(2, '2016-07-21 06:16:13', '2016-07-21 06:16:13', 6),
-(3, '2016-07-21 06:16:17', '2016-07-21 06:16:17', 5),
-(4, '2016-07-21 06:16:21', '2016-07-21 06:16:21', 2),
-(5, '2016-07-21 06:16:25', '2016-07-21 06:16:25', 2);
+(1, '2016-07-21 06:57:29', '2016-07-21 06:57:29', 3),
+(2, '2016-07-21 07:00:57', '2016-07-21 07:00:57', 1),
+(3, '2016-07-21 07:01:02', '2016-07-21 07:01:02', 4),
+(4, '2016-07-21 07:01:14', '2016-07-21 07:01:14', 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
