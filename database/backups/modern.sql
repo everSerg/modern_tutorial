@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 21 2016 г., 11:33
+-- Время создания: Июл 21 2016 г., 12:20
 -- Версия сервера: 5.6.22-log
 -- Версия PHP: 5.6.3
 
@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
-('2016_06_20_090525_create_nice_actions_table', 1);
+('2016_06_20_090525_create_nice_actions_table', 1),
+('2016_07_21_084015_create_nice_action_logs_table', 2);
 
 -- --------------------------------------------------------
 
@@ -66,6 +67,31 @@ INSERT INTO `nice_actions` (`id`, `created_at`, `updated_at`, `name`, `niceness`
 (6, '2016-07-21 05:29:29', '2016-07-21 05:29:29', 'Blink', 3),
 (7, '2016-07-21 05:29:43', '2016-07-21 05:29:43', 'Smile', 14),
 (8, '2016-07-21 05:31:54', '2016-07-21 05:31:54', 'Smilee', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `nice_action_logs`
+--
+
+CREATE TABLE IF NOT EXISTS `nice_action_logs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nice_action_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Дамп данных таблицы `nice_action_logs`
+--
+
+INSERT INTO `nice_action_logs` (`id`, `created_at`, `updated_at`, `nice_action_id`) VALUES
+(1, '2016-07-21 06:16:09', '2016-07-21 06:16:09', 4),
+(2, '2016-07-21 06:16:13', '2016-07-21 06:16:13', 6),
+(3, '2016-07-21 06:16:17', '2016-07-21 06:16:17', 5),
+(4, '2016-07-21 06:16:21', '2016-07-21 06:16:21', 2),
+(5, '2016-07-21 06:16:25', '2016-07-21 06:16:25', 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,6 +1,0 @@
-@extends('layouts.master')
-
-@section('content')
-    <a href="{{ route('home') }}">Home</a>
-    <h1>I kiss you!</h1>
-@endsection
