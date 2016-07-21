@@ -13,7 +13,11 @@ class NiceActionController extends Controller
     }
 
     public function getNiceAction($action, $name = null){
-        return view( 'actions.' . $action, ['name' => $name]);
+
+        if($name === null){
+            $name = 'you';
+        }
+        return view( 'actions.nice', ['action' => $action, 'name' => $name]);
     }
 
     public function postNiceAction(Request $request){
