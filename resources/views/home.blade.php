@@ -44,5 +44,7 @@
 
     </div>
 
+    {{ dd($db) }}
+
 
 @endsection

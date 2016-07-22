@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\NiceActionLog;
 use \Illuminate\Http\Request;
 use App\NiceAction;
+use DB;
 
 class NiceActionController extends Controller
 {
     public function getHome(){
         $actions = NiceAction::all();
         $logged_actions = NiceActionLog::all();
-        return view('home', ['actions' => $actions, 'logged_actions' => $logged_actions]);
+        $query = DB::table('nice_action_logs')
+                    ->join('nice_actions', 'nice_action_logs.nice_action_id', '=', 'nice_actions.id')
+                    ->get();
+        return view('home', ['actions' => $actions, 'logged_actions' => $logged_actions, 'db' => $query]);
     }
 
     public function getNiceAction($action, $name = null){
