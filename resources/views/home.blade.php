@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <script src="{{ URL::to('src/js/jquery-1.9.1.js') }}"></script>
     <div class="centered">
         @foreach ($actions as $action)
             <a href="{{ route('niceaction', ['action' => lcfirst($action->name)]) }}">{{ $action->name }}</a>
@@ -25,11 +26,22 @@
             <input type="text" name="name" id="name" />
             <label for="niceness">Niceness:</label>
             <input type="text" name="niceness" id="niceness" />
-            <button type="submit">Do a nice action!</button>
+            <button type="submit" onclick="send(event)">Do a nice action!</button>
             <input type="hidden" value="{{ Session::token() }}" name="_token"/>
         </form>
 
         <br/><br/><br/>
+
+        <script>
+            function send(event){
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('add_action') }}',
+                    data: {name: $('#name').val(), niceness: $('#niceness').val(), _token: "{{ Session::token() }}"}
+                });
+            }
+        </script>
 
         <ul>
             @foreach($logged_actions as $logged_action)
