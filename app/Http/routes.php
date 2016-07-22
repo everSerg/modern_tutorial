@@ -11,24 +11,9 @@
 |
 */
 
-//Route::group(['middleware' => ['web']], function () {
-    Route::get('/', [
-        'uses' => 'NiceActionController@getHome',
-        'as' => 'home'
-    ]);
+Route::group(['middleware' => ['web']], function () {
 
-    Route::group(['prefix' => 'do'], function(){
-        Route::get('/{action}/{name?}', [
-            'uses' => 'NiceActionController@getNiceAction',
-            'as' => 'niceaction'
-        ]);
-
-        Route::post('/add_action', [
-            'uses' => 'NiceActionController@postInsertNiceAction',
-            'as' => 'add_action'
-        ]);
-    });
-//});
+});
 
 
 
