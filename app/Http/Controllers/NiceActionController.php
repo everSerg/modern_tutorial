@@ -16,30 +16,39 @@ class NiceActionController extends Controller
 
         $logged_actions = NiceActionLog::all();
 
+        $query = '';
+
         /*
-        $logged_actions = NiceActionLog::whereHas('nice_action', function($query){
-            $query->where('name', '=', 'Kiss');
-        })->get();
+
+        $query = DB::table('nice_action_logs')
+            ->insertGetId([
+                'nice_action_id' => DB::table('nice_actions')->select('id')->where('name', 'Hug')->first()->id
+            ]);
+
         */
 
         /*
-        $query = DB::table('nice_action_logs')
-                    ->join('nice_actions', 'nice_action_logs.nice_action_id', '=', 'nice_actions.id')
-                    ->where('nice_actions.name', '=', 'Kiss')
-                    ->get();
+
+        $nice_action = NiceAction::where('name', 'Hug')->first();
+        $nice_action_log = new NiceActionLog();
+        $nice_action->logged_actions()->save($nice_action_log);
 
         */
 
+        $hug = NiceAction::where('name', 'Hug')->first();
 
-        /*
-        $query = DB::table('nice_action_logs')
-            ->where('id', '>', 3)
-            ->count();
-        */
+        if($hug){
+            $hug->name = 'Smile';
+            $hug->update;
+        }
 
-        $query = DB::table('nice_action_logs')
-            ->where('id', '>', 3)
-            ->max('id');
+        $wave = NiceAction::where('name', 'Wave')->first();
+
+        if($wave){
+            $wave->name = 'Smile';
+            $wave->delete();
+        }
+
 
 
         return view('home', ['actions' => $actions, 'logged_actions' => $logged_actions, 'db' => $query]);
