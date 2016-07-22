@@ -10,48 +10,10 @@ use DB;
 class NiceActionController extends Controller
 {
     public function getHome(){
-        $actions = NiceAction::all();
-
         $actions = NiceAction::orderBy('niceness', 'desc')->get();
+        $logged_actions = NiceActionLog::paginate(5);
 
-        $logged_actions = NiceActionLog::all();
-
-        $query = '';
-
-        /*
-
-        $query = DB::table('nice_action_logs')
-            ->insertGetId([
-                'nice_action_id' => DB::table('nice_actions')->select('id')->where('name', 'Hug')->first()->id
-            ]);
-
-        */
-
-        /*
-
-        $nice_action = NiceAction::where('name', 'Hug')->first();
-        $nice_action_log = new NiceActionLog();
-        $nice_action->logged_actions()->save($nice_action_log);
-
-        */
-
-        $hug = NiceAction::where('name', 'Hug')->first();
-
-        if($hug){
-            $hug->name = 'Smile';
-            $hug->update;
-        }
-
-        $wave = NiceAction::where('name', 'Wave')->first();
-
-        if($wave){
-            $wave->name = 'Smile';
-            $wave->delete();
-        }
-
-
-
-        return view('home', ['actions' => $actions, 'logged_actions' => $logged_actions, 'db' => $query]);
+        return view('home', ['actions' => $actions, 'logged_actions' => $logged_actions]);
     }
 
     public function getNiceAction($action, $name = null){
