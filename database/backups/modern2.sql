@@ -2,10 +2,10 @@
 -- version 4.0.10.6
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Июл 23 2016 г., 10:03
--- Версия сервера: 5.6.22-log
--- Версия PHP: 5.6.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 21, 2016 at 12:52 PM
+-- Server version: 5.6.22-log
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `modern2`
+-- Database: `modern2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `authors`
+-- Table structure for table `authors`
 --
 
 CREATE TABLE IF NOT EXISTS `authors` (
@@ -32,12 +32,23 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `created_at`, `updated_at`, `name`) VALUES
+(1, '2016-08-21 04:57:35', '2016-08-21 04:57:35', 'Testname'),
+(2, '2016-08-21 05:08:54', '2016-08-21 05:08:54', 'Name2'),
+(3, '2016-08-21 05:15:47', '2016-08-21 05:15:47', 'Name3'),
+(4, '2016-08-21 05:28:57', '2016-08-21 05:28:57', 'Name4'),
+(6, '2016-08-21 06:40:17', '2016-08-21 06:40:17', 'Namee');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -46,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -56,7 +67,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `quotes`
+-- Table structure for table `quotes`
 --
 
 CREATE TABLE IF NOT EXISTS `quotes` (
@@ -66,7 +77,20 @@ CREATE TABLE IF NOT EXISTS `quotes` (
   `quote` text COLLATE utf8_unicode_ci NOT NULL,
   `author_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `quotes`
+--
+
+INSERT INTO `quotes` (`id`, `created_at`, `updated_at`, `quote`, `author_id`) VALUES
+(1, '2016-08-21 04:57:35', '2016-08-21 04:57:35', 'My first quote', 1),
+(2, '2016-08-21 05:08:54', '2016-08-21 05:08:54', 'Your Quote 2', 2),
+(3, '2016-08-21 05:15:47', '2016-08-21 05:15:47', 'Your Quote 3\r\n', 3),
+(4, '2016-08-21 05:28:57', '2016-08-21 05:28:57', 'Your Quote4', 4),
+(7, '2016-08-21 06:40:17', '2016-08-21 06:40:17', 'Namee Quote', 6),
+(8, '2016-08-21 06:40:34', '2016-08-21 06:40:34', 'Namee Quote2', 6),
+(9, '2016-08-21 06:48:29', '2016-08-21 06:48:29', 'Namee Quote3', 6);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

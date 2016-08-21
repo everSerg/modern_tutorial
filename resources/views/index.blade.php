@@ -36,7 +36,12 @@
             </article>
         @endfor
         <div class="pagination">
-            Pagination
+            @if($quotes->currentPage() !== 1)
+                <a href="{{ $quotes->previousPageUrl() }}"><span><</span></a>
+            @endif
+            @if($quotes->currentPage() !== $quotes->lastPage() && $quotes->hasPages())
+                <a href="{{ $quotes->nextPageUrl() }}"><span>></span></a>
+            @endif
         </div>
     </section>
     <section class="edit-quote">
