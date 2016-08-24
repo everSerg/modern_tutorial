@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 24, 2016 at 10:42 AM
+-- Generation Time: Aug 24, 2016 at 11:00 AM
 -- Server version: 5.6.22-log
 -- PHP Version: 5.6.3
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `created_at`, `updated_at`, `remember_token`, `name`, `password`) VALUES
-(1, '2016-08-24 03:43:46', '2016-08-24 03:43:46', NULL, 'admin', '$2y$10$rW1nOL9EHrbA09uu/dUY4.Q7Tsa1RMieGqs4gKLfBN/nccYvN3pHG');
+(1, '2016-08-24 03:43:46', '2016-08-24 04:59:28', 'Zpr0xUYZ1TUSBP1ZvEIMWQkIDGsklTBWVfi7J32EBia1rtzbOdlNIk7sXFwp', 'admin', '$2y$10$rW1nOL9EHrbA09uu/dUY4.Q7Tsa1RMieGqs4gKLfBN/nccYvN3pHG');
 
 -- --------------------------------------------------------
 
