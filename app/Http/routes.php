@@ -32,6 +32,11 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'mail_callback'
     ]);
 
+    Route::get('/admin/login', [
+        'uses' => 'AdminController@getLogin',
+        'as' => 'admin.login'
+    ]);
+
 });
 
 

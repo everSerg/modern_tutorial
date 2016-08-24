@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 23, 2016 at 06:33 PM
+-- Generation Time: Aug 24, 2016 at 10:02 AM
 -- Server version: 5.6.22-log
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `modern2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `created_at`, `updated_at`, `remember_token`, `name`, `password`) VALUES
+(1, '2016-08-24 03:43:46', '2016-08-24 03:43:46', NULL, 'admin', '$2y$10$rW1nOL9EHrbA09uu/dUY4.Q7Tsa1RMieGqs4gKLfBN/nccYvN3pHG');
 
 -- --------------------------------------------------------
 
@@ -86,7 +109,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_07_22_103308_create_authors_table', 1),
 ('2016_07_22_103402_create_quotes_table', 1),
 ('2016_08_21_132007_create_quote_logs_table', 1),
-('2016_08_23_144528_create_author_logs_table', 2);
+('2016_08_23_144528_create_author_logs_table', 2),
+('2016_08_24_063347_create_admins_table', 3);
 
 -- --------------------------------------------------------
 
