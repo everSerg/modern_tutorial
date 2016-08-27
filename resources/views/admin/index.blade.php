@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ URL::secure('src/css/modal.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ URL::to('src/css/modal.css') }}" type="text/css">
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
             <header>
                 <nav>
                     <ul>
-                        <li><a href="{{ route('blog.index') }}" class="btn">New Post</a></li>
-                        <li><a href="{{ route('about') }}" class="btn">Show all Posts</a></li>
+                        <li><a href="{{ route('admin.blog.create_post') }}" class="btn">New Post</a></li>
+                        <li><a href="" class="btn">Show all Posts</a></li>
                     </ul>
                 </nav>
             </header>
@@ -82,6 +82,6 @@
     <script>
         var token = "{{ Session::token() }}"
     </script>
-    <script type="text/javascript" src="{{ URL::secure('src/js/modal.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::secure('src/js/contact_messages.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::to('src/js/modal.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::to('src/js/contact_messages.js') }}"></script>
 @endsection
