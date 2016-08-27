@@ -21,15 +21,15 @@
                 <article>
                     <div class="category-info" data-id="{{ $category->id }}">
                         <h3>{{ $category->name }}</h3>
-                        <div class="edit">
-                            <nav>
-                                <ul>
-                                    <li class="category-edit"><input type="text" /></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li><a href="#" class="danger">Delete</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                    </div>
+                    <div class="edit">
+                        <nav>
+                            <ul>
+                                <li class="category-edit"><input type="text" /></li>
+                                <li><a href="#">Edit</a></li>
+                                <li><a href="#" class="danger">Delete</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </article>
             @endforeach
