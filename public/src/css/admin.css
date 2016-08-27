@@ -99,7 +99,7 @@ header.top-nav li:active {
 
 header.top-nav li:hover a,
 header.top-nav li:active a {
-    background-color: #0863d3;
+    background-color: #fff;
 }
 
 header.top-nav li.active {
@@ -107,7 +107,8 @@ header.top-nav li.active {
 }
 
 header.top-nav li.active a{
-    background-color: #0863d3;
+    background-color: #fff;
+    color: #0863d3;
 }
 
 header.top-nav a{
