@@ -43,6 +43,11 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin.index'
         ]);
 
+        Route::get('/blog/categories',[
+            'uses' => 'CategoryController@getCategoryIndex',
+            'as' => 'admin.blog.categories'
+        ]);
+
         Route::get('/blog/posts',[
             'uses' => 'PostController@getPostIndex',
             'as' => 'admin.blog.index'
