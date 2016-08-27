@@ -12,7 +12,7 @@
         @yield('content')
 
         <script type="text/javascript">
-            var baseUrl = "{{ URL::to('/') }}}";
+            var baseUrl = "{{ URL::to('/') }}";
         </script>
 
         @yield('scripts')
