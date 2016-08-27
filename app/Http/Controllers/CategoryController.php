@@ -42,4 +42,11 @@ class CategoryController extends Controller{
         $category->update();
         return Response::json(['messages' => 'Category updated', 'new_name' => $request['name']], 200);
     }
+
+    public function getDeleteCategory($category_id)
+    {
+        $category = Category::find($category_id);
+        $category->delete();
+        return Response::json(['messages' => 'Category deleted'], 200);
+    }
 }
