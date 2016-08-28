@@ -31,11 +31,23 @@ class PostController extends Controller{
 
     public function getUpdatePost($post_id){
         $post = Post::find($post_id);
+        $categories = Category::all();
+        $post_categories = $post->categories;
+        $i = 0;
+        $post_categories_ids = array();
+        if(!empty($post_categories)){
+            foreach($post_categories as $post_category){
+                $post_categories_ids[$i] = $post_category->id;
+                $i++;
+            }
+        }
         if(!$post){
             return redirect()->route('blog.index')->with(['fail' => 'Post Not Found!']);
         }
         //Find categories
-        return view('admin.blog.edit_post', ['post' => $post]);
+        //return view('admin.blog.edit_post', ['post' => $post, 'categories' => $categories, 'post_categories' => $post_categories, 'post_categories_ids' => $post_categories_ids ]);
+        //SR used compact() instead of common array:
+        return view('admin.blog.edit_post', compact('post', 'categories', 'post_categories', 'post_categories_ids'));
     }
 
     public function postUpdatePost(Request $request){
@@ -54,7 +66,8 @@ class PostController extends Controller{
     }
 
     public function getCreatePost(){
-        return view('admin.blog.create_post');
+        $categories = Category::all();
+        return view('admin.blog.create_post', compact('categories'));
     }
 
     public function postCreatePost(Request $request){
