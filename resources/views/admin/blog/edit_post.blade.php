@@ -27,7 +27,7 @@
                 <div class="added-categories">
                     <ul>
                         @foreach($post_categories as $post_category)
-                            <li><a href="#" data-id="{{ $category->id }}">{{ $category->name }}</a></li>
+                            <li><a href="#" data-category_id="{{ $post_category->id }}">{{ $post_category->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
