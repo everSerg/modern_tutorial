@@ -10,18 +10,22 @@
 
 @section('content')
     @include('includes.info-box')
-    <form action="" method="post" id="contact-form">
+    <form action="{{ route('contact.send') }}" method="post" id="contact-form">
         <div class="input-group">
-            <label for="author">Your Name</label>
-            <input type="text" name="author" id="author" placeholder="Your Name"/>
+            <label for="name">Your Name</label>
+            <input type="text" name="name" id="name" placeholder="Your Name" value="{{ Request::old('name') }}"/>
         </div>
         <div class="input-group">
             <label for="email">Your E-mail</label>
-            <input type="text" name="email" id="email" placeholder="Your E-mail"/>
+            <input type="text" name="email" id="email" placeholder="Your E-mail" value="{{ Request::old('email') }}"/>
+        </div>
+        <div class="input-group">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" placeholder="Subject" value="{{ Request::old('subject') }}"/>
         </div>
         <div class="input-group">
             <label for="message">Your Message</label>
-            <textarea name="message" id="message" placeholder="Your Message" rows="10"></textarea>
+            <textarea name="message" id="message" placeholder="Your Message" rows="10">{{ Request::old('message') }}</textarea>
         </div>
         <button type="submit" class="btn">Submit Message</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}"/>
