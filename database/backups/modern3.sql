@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 25, 2016 at 09:23 AM
+-- Generation Time: Sep 03, 2016 at 08:39 AM
 -- Server version: 5.6.22-log
 -- PHP Version: 5.6.3
 
@@ -34,14 +34,14 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `created_at`, `updated_at`, `remember_token`, `email`, `password`) VALUES
-(1, '2016-08-25 02:34:16', '2016-08-25 02:34:16', NULL, 'admin@admin.com', '$2y$10$4teB6p7wQm0MF6zuoP7gyeBktWXwTVO5Zf6m/FXFuZ/0XnM3iAAlO');
+(1, '2016-08-25 02:34:16', '2016-09-03 02:33:12', 'BccmZ1wH4Dx97loXsyZ6JCEk4N1bWPG1i4NYh0B8gtAfRNni9POh3R1EfjZK', 'admin@admin.com', '$2y$10$4teB6p7wQm0MF6zuoP7gyeBktWXwTVO5Zf6m/FXFuZ/0XnM3iAAlO');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
 INSERT INTO `categories` (`id`, `created_at`, `updated_at`, `name`) VALUES
 (1, '2016-08-25 02:34:40', '2016-08-25 02:34:40', 'Tech'),
 (2, '2016-08-25 02:34:40', '2016-08-25 02:34:40', 'Sports'),
-(3, '2016-08-25 02:34:40', '2016-08-25 02:34:40', 'Food');
+(3, '2016-08-25 02:34:40', '2016-08-25 02:34:40', 'Food'),
+(4, '2016-08-27 10:55:26', '2016-08-27 10:55:26', 'test');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,14 @@ CREATE TABLE IF NOT EXISTS `contact_messages` (
   `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `body` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `contact_messages`
+--
+
+INSERT INTO `contact_messages` (`id`, `created_at`, `updated_at`, `sender`, `email`, `subject`, `body`) VALUES
+(5, '2016-08-31 08:35:37', '2016-08-31 08:35:37', 'Сергей Рыбалко', 'admin@admin.com', 'Create a new message', 'Your Message');
 
 -- --------------------------------------------------------
 
@@ -119,7 +127,15 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `body` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `created_at`, `updated_at`, `title`, `author`, `body`) VALUES
+(4, '2016-08-28 00:52:23', '2016-08-28 00:52:23', 'Test', 'Serg', 'eerwe ewrwer werwer'),
+(5, '2016-09-03 02:36:43', '2016-09-03 02:36:43', 'Serg post', 'Serg', 'Body of serg post');
 
 -- --------------------------------------------------------
 
@@ -134,7 +150,17 @@ CREATE TABLE IF NOT EXISTS `posts_categories` (
   `post_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
+
+--
+-- Dumping data for table `posts_categories`
+--
+
+INSERT INTO `posts_categories` (`id`, `created_at`, `updated_at`, `post_id`, `category_id`) VALUES
+(28, NULL, NULL, 4, 2),
+(29, NULL, NULL, 4, 3),
+(30, NULL, NULL, 5, 3),
+(31, NULL, NULL, 5, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

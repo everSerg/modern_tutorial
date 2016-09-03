@@ -48,7 +48,7 @@
             <header>
                 <nav>
                     <ul>
-                        <li><a href="{{ route('blog.index') }}" class="btn">Show all Messages</a></li>
+                        <li><a href="{{ route('admin.contact.index') }}" class="btn">Show all Messages</a></li>
                     </ul>
                 </nav>
             </header>
